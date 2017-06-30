@@ -12,7 +12,7 @@ namespace CleanArchitecture.Core.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public IList<Course> RegisteredCourses { get; }
-        public IList<Course> EnrolledCourses { get; }
+        public IList<Course> EnrolledCourses { get; set; }
 
         public Student()
         {
@@ -30,11 +30,6 @@ namespace CleanArchitecture.Core.Entities
 
             RegisteredCourses.Add(course);
             return true;
-        }
-
-        public void EnrollInCourse(Course course)
-        {
-            EnrolledCourses.Add(course);
         }
     }
 }
