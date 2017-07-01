@@ -42,5 +42,25 @@ namespace CleanArchitecture.Tests.Entities
             // assert
             Assert.False(result);
         }
+
+        [Fact]
+        public void CannotRegisterForCourseAlreadyRegisteredFor()
+        {
+            // arrange
+            var student = new Student
+            {
+                RegisteredCourses = new List<Course>
+                {
+                   new Course { Code = "BIOL-1507EL", Name = "Biology II" },
+                   new Course { Code = "MATH-4067EL", Name = "Mathematical Theory of Dynamical Systems, Chaos and Fractals" }
+                }
+            };
+
+            // act
+            var result = student.RegisterForCourse(new Course { Code = "BIOL-1507EL" });
+
+            // assert
+            Assert.False(result);
+        }
     }
 }

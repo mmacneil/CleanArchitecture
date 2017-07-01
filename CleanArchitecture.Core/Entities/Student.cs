@@ -11,7 +11,7 @@ namespace CleanArchitecture.Core.Entities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public IList<Course> RegisteredCourses { get; }
+        public IList<Course> RegisteredCourses { get; set; }
         public IList<Course> EnrolledCourses { get; set; }
 
         public Student()
@@ -24,6 +24,9 @@ namespace CleanArchitecture.Core.Entities
         {
             // student has not previously enrolled
             if (EnrolledCourses.Any(ec => ec.Code == course.Code)) return false;
+
+            // student has not previously registered
+            if (RegisteredCourses.Any(ec => ec.Code == course.Code)) return false;
 
             // registratraion cannot occur with 5 days of course start date
             if (DateTime.UtcNow > course.StartDate.AddDays(-5)) return false;
