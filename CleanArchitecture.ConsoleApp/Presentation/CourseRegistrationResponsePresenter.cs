@@ -5,7 +5,7 @@ using CleanArchitecture.Core.Dto;
 
 namespace CleanArchitecture.ConsoleApp.Presentation
 {
-    public class CourseRegistrationRequestResponsePresenter
+    public class CourseRegistrationResponsePresenter
     {
         public CourseRegistrationResponseViewModel Handle(CourseRegistrationResponseMessage responseMessage)
         {

@@ -20,7 +20,6 @@ namespace CleanArchitecture.ConsoleApp
 
             var courses = courseRepository.GetAll();
 
-
             string userInput;
             do
             {
@@ -55,7 +54,7 @@ namespace CleanArchitecture.ConsoleApp
                     var responseMessage = courseRegistraionRequestUseCase.Handle(useCaseRequestMessage);
 
                     // 4. use a Presenter to convert the use case response to a user friendly ViewModel
-                    var courseRegistraionResponsePresenter = new CourseRegistrationRequestResponsePresenter();
+                    var courseRegistraionResponsePresenter = new CourseRegistrationResponsePresenter();
                     var vm = courseRegistraionResponsePresenter.Handle(responseMessage);
 
                     Console.Clear();
